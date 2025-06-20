@@ -1,4 +1,4 @@
-# VPN на Keenetic. Host-based routing
+# Amnezia WireGuard на Keenetic. Host-based routing
 
 ## Покупаем сервер
 
@@ -15,7 +15,7 @@ https://docs.amnezia.org/ru/documentation/instructions/install-vpn-on-server
 - Ждём пока инсталятор установит `Amnezia WireGuard` на сервер
 - Сохраняем конфигурацию в файл. Для этого нажимаем (Share > Share > Save)
 
-После этого можно подключиться в VPN прямо из приложение и уже пользоваться
+После этого можно подключиться к `VPN` прямо из приложение и уже пользоваться. Но мы настроим `VPN` на роутере
 
 ## Добавляем VPN-подключение на роутере
 
