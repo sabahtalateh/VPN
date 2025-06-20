@@ -38,7 +38,7 @@ https://docs.amnezia.org/ru/documentation/instructions/install-vpn-on-server
 
 - Форматируем `USB` в `Ext4`
 - Устанавливаем `opkg` по [инструкции](https://help.keenetic.com/hc/ru/articles/360021214160-Установка-системы-пакетов-репозитория-Entware-на-USB-накопитель)
-  - Тут может не стартовать `ssh`-сервер, тогда [читаем как чинить](https://forum.keenetic.ru/topic/6012-работа-с-entware-при-обновлениях-прошивки-keenetic/). В инструкции старый пути до файла, новый путь такой `/etc/config/dropbear.conf`
+  - Тут может не стартовать `ssh`-сервер, тогда [читаем как чинить](https://forum.keenetic.ru/topic/6012-работа-с-entware-при-обновлениях-прошивки-keenetic/). В инструкции старый путь до файла, новый путь такой `/etc/config/dropbear.conf`
 - Устанавлиаем `HydraRoute` по [инструкции](https://github.com/Ground-Zerro/HydraRoute). Выбираем Classic
 - В политиках подключение добавится 3 новых, идём в `HydraRoute1st` и добавляем в него соединение `Amnezia WireGuard`
 - По адресу http://192.168.1.1:2000 можно настраивать список хостов, которые будут открываться через соединение `Amnezia WireGuard`
