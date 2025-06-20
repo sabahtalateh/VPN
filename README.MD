@@ -36,7 +36,7 @@ https://docs.amnezia.org/ru/documentation/instructions/install-vpn-on-server
 
 Установим `opkg` и `HydraRoute` на внешний `USB`, подключённый к роутеру
 
-- Форматируем `USB` в `Ext4`
+- Форматируем `USB` в `Ext4` и подключаем его у роутеру
 - Устанавливаем `opkg` по [инструкции](https://help.keenetic.com/hc/ru/articles/360021214160-Установка-системы-пакетов-репозитория-Entware-на-USB-накопитель)
   - Тут может не стартовать `ssh`-сервер, тогда [читаем как чинить](https://forum.keenetic.ru/topic/6012-работа-с-entware-при-обновлениях-прошивки-keenetic/). В инструкции старый путь до файла, новый путь такой `/etc/config/dropbear.conf`
 - Устанавлиаем `HydraRoute` по [инструкции](https://github.com/Ground-Zerro/HydraRoute). Выбираем Classic
