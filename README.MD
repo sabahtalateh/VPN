@@ -27,6 +27,7 @@ https://docs.amnezia.org/ru/documentation/instructions/install-vpn-on-server
 - Выполняем `show interface`
 - Ищем там интерфейс `Wireguard0`
 - Выполняем `interface <interface_id> wireguard asc <jc> <min> <max> <s1> <s2> <h1> <h2> <h3> <h4>`. Переменные в скобках берём из сохранённого конфигурационного файла. `interface_id=Wireguard0`
+- Сохраняем изменения. `system configuration save`
 - Теперь можно включить соединение
 
 После этого можно добавить соединение в политику по умолчанию, или создать новую политику и перетащить туда нужных клиентов
