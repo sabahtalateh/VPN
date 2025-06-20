@@ -1,19 +1,19 @@
 # VPN на Keenetic. Host-based routing
 
-## Покупаем VPS
+## Покупаем сервер
 
 https://adminvps.ru
 
-На почту придут креды
+Покупаем сервер в каких нибудь Нидерландах или Германии. На почту придут креды
 
 ## Устанавливаем на него Amnezia WireGuard
 
 https://docs.amnezia.org/ru/documentation/instructions/install-vpn-on-server
 
 - Скачиваем инсталятор
-- Запускаем и пишем в него креды от VPS
-- Ждём пока инсталятор установит Amnezia WireGuard на VPS
-- Сохраняем конфигурацию в файл. Для этого нажимаем Share > Share > Save
+- Запускаем и пишем в него креды от сервера
+- Ждём пока инсталятор установит `Amnezia WireGuard` на сервер
+- Сохраняем конфигурацию в файл. Для этого нажимаем (Share > Share > Save)
 
 После этого можно подключиться в VPN прямо из приложение и уже пользоваться
 
@@ -23,7 +23,7 @@ https://docs.amnezia.org/ru/documentation/instructions/install-vpn-on-server
 - Идём в Сеть > Другие подключения
 - Загружаем конфигурацию, которую сохранили на предыдущем шаге
 - (!) Пока не включаем это подключение
-- Заходим в командную строку роутера (192.168.1.1/a)
+- Заходим в командную строку роутера http://192.168.1.1/a
 - Выполняем `show interface`
 - Ищем там интерфейс `Wireguard0`
 - Выполняем `interface <interface_id> wireguard asc <jc> <min> <max> <s1> <s2> <h1> <h2> <h3> <h4>`. Переменные в скобках берём из сохранённого конфигурационного файла. `interface_id=Wireguard0`
@@ -33,6 +33,15 @@ https://docs.amnezia.org/ru/documentation/instructions/install-vpn-on-server
 
 ## OPKG + HydraRoute
 
-Установим OPKG на внешний USB, подключённый к роутеру
+Установим OPKG и HydraRoute на внешний USB, подключённый к роутеру
+
+- Форматируем USB в Ext4
+- Устанавливаем `opkg` по [инструкции](https://help.keenetic.com/hc/ru/articles/360021214160-Установка-системы-пакетов-репозитория-Entware-на-USB-накопитель)
+  - Тут может не стартовать `ssh`-сервер, тогда [читаем как чинить](https://forum.keenetic.ru/topic/6012-работа-с-entware-при-обновлениях-прошивки-keenetic/). В инструкции старый пути до файла, новый путь такой `/etc/config/dropbear.conf`
+- Устанавлиаем `HydraRoute` по [инструкции](https://github.com/Ground-Zerro/HydraRoute). Выбираем Classic
+- В политиках подключение добавится 3 новых, идём в `HydraRoute1st` и добавляем в него соединение `Amnezia WireGuard`
+- По адресу http://192.168.1.1:2000 можно настраивать список хостов, которые будут открываться через соединение `Amnezia WireGuard`
+- Переносим устройтсва в политика `HydraRoute1st`
+
 
 
