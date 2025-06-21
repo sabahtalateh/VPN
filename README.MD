@@ -8,7 +8,7 @@ https://adminvps.ru
 
 ## Устанавливаем Amnezia WireGuard на сервер. Сохраянем конфигурацию для подключения
 
-Скачиваем [Amnezia WireGuard](https://amnezia.org/en/downloads)
+[Инсталятор Amnezia WireGuard](https://amnezia.org/en/downloads)
 
 Если ссылка не открывается, можно попробовать следующие варианты
 
