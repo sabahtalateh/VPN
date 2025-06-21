@@ -1,5 +1,10 @@
 # Keenetic. Amnezia WireGuard. Host Based Routing
 
+Без чего не получится выполнить инструкции
+
+- Роутер Keenetic с USB разъёмом (у меня Keenetic Giga (KN-1012))
+- USB-стик
+
 ## Покупаем сервер
 
 https://adminvps.ru
