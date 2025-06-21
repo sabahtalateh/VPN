@@ -12,10 +12,10 @@ https://adminvps.ru
 
 Если ссылка не открывается, можно попробовать следующие варианты
 
-- Попробовать открыть зеркало https://storage.googleapis.com/amnezia/amnezia.org. Работает на момент написание этого документа
+- Попробовать открыть [зеркало](https://storage.googleapis.com/amnezia/amnezia.org). Работает на момент написание этого документа
 - Открыть с помощью какого-нибудь триального/бесплатного ВПН
 
-Инструкция по установке `Amnezia WireGuard` на удалённый сервер. https://docs.amnezia.org/ru/documentation/instructions/install-vpn-on-server. Ниже сокращённый пересказ
+[Инструкция по установке Amnezia WireGuard на удалённый сервер](https://docs.amnezia.org/ru/documentation/instructions/install-vpn-on-server). Ниже сокращённый пересказ
 
 - Скачиваем инсталятор для своей ОС
 - Запускаем и пишем в него креды от сервера
