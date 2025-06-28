@@ -48,6 +48,10 @@ openssl req -x509 -nodes -days 3650 -newkey rsa:2048 \
   -subj "/C=US/ST=State/L=City/O=Organization/OU=Department/CN=example.com"
 ```
 
+После генерации нужно в `Panel Settings > Certificates` настроить
+- Public Key Path: `/etc/ssl/self_signed_cert/self_signed.crt`
+- Private Key Path: `/etc/ssl/self_signed_cert/self_signed.key`
+
 ## XKeen
 
 Установим на роутер пакетный менеджер `opkg` и пакет `XKeen`
