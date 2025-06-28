@@ -2,9 +2,9 @@
 
 ## Другие инструкции
 
-- [3x-ui](https://wiki.aeza.net/razvertyvanie-proksi-protokola-vless-s-pomoshyu-3x-ui)
+- [3x-ui от aeza](https://wiki.aeza.net/razvertyvanie-proksi-protokola-vless-s-pomoshyu-3x-ui)
 - [XKeen](https://github.com/Corvus-Malus/XKeen)
-- [От Антенки](https://www.youtube.com/watch?v=CtiILKiAg5Y)
+- [Всё вместе от Антенки](https://www.youtube.com/watch?v=CtiILKiAg5Y)
 
 ## Требования
 
