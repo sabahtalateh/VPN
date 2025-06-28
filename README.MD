@@ -4,7 +4,7 @@
 
 - [3x-ui от aeza](https://wiki.aeza.net/razvertyvanie-proksi-protokola-vless-s-pomoshyu-3x-ui)
 - [XKeen](https://github.com/Corvus-Malus/XKeen)
-- [Всё вместе от Антенки](https://www.youtube.com/watch?v=CtiILKiAg5Y)
+- [Видео от Антенки](https://www.youtube.com/watch?v=CtiILKiAg5Y)
 
 ## Требования
 
