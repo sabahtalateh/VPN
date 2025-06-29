@@ -357,6 +357,11 @@ xkeen -restart
 
 Добавляем устройства, которым нужен VPN в политику `XKeen`
 
+
+## Обновление XRay Core
+
+[Инструкция](https://github.com/XTLS/Xray-install?tab=readme-ov-file#basic-usage)
+
 ## [DEPRECATED] 3x-ui
 
 Можно вместо `xray core` установить `3x-ui` но там надо заморачиваться с сертификатами, и для простого сценария использования это оверкил
