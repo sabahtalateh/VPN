@@ -251,8 +251,9 @@ echo "shortsid: $(openssl rand -hex 8)" >> /usr/local/etc/xray/.keys
 
 <details>
 
-<summary>`/usr/local/bin/mainuser`</summary>
+<summary><code>/usr/local/bin/mainuser</code></summary>
 
+```bash
 #!/bin/bash
 protocol=$(jq -r '.inbounds[0].protocol' /usr/local/etc/xray/config.json)
 port=$(jq -r '.inbounds[0].port' /usr/local/etc/xray/config.json)
@@ -263,11 +264,12 @@ sni=$(jq -r '.inbounds[0].streamSettings.realitySettings.serverNames[0]' /usr/lo
 ip=$(timeout 3 curl -s icanhazip.com)
 link="$protocol://$uuid@$ip:$port?security=reality&sni=$sni&fp=firefox&pbk=$pbk&sid=$sid&spx=/&type=tcp&flow=xtls-rprx-vision&encryption=none#vless-$ip"
 echo ""
-echo "Ссылка для подключения":
+echo "Link":
 echo "$link"
 echo ""
-echo "QR-код:"
+echo "QR:"
 echo ${link} | qrencode -t ansiutf8
+```
 
 </details>
 
