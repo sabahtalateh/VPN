@@ -56,27 +56,38 @@ warning: Please make sure the configuration file path is correctly set.
 # Содержимое основного сервисного файла
 # /etc/systemd/system/xray.service
 [Unit]
-Description=Xray Service
-Documentation=https://github.com/xtls
-After=network.target nss-lookup.target
+Description=Xray Service                                                    # Описание сервиса
+Documentation=https://github.com/xtls                                       # Ссылка на документацию
+After=network.target nss-lookup.target                                      # Запускать после сети и DNS
+
 [Service]
-User=nobody
-CapabilityBoundingSet=CAP_NET_ADMIN CAP_NET_BIND_SERVICE
-AmbientCapabilities=CAP_NET_ADMIN CAP_NET_BIND_SERVICE
-NoNewPrivileges=true
-ExecStart=/usr/local/bin/xray run -config /usr/local/etc/xray/config.json
-Restart=on-failure
-RestartPreventExitStatus=23
-LimitNPROC=10000
-LimitNOFILE=1000000
+User=nobody                                                                 # Запуск от пользователя nobody (безопасность)
+CapabilityBoundingSet=CAP_NET_ADMIN CAP_NET_BIND_SERVICE                    # Ограничение прав: сеть + привязка к портам
+AmbientCapabilities=CAP_NET_ADMIN CAP_NET_BIND_SERVICE                      # Разрешенные возможности процесса
+NoNewPrivileges=true                                                        # Запрет на повышение привилегий
+ExecStart=/usr/local/bin/xray run -config /usr/local/etc/xray/config.json   # Команда запуска с явным путем к конфигу
+Restart=on-failure                                                          # Перезапуск при сбое
+RestartPreventExitStatus=23                                                 # Не перезапускать при коде выхода 23
+LimitNPROC=10000                                                            # Лимит количества процессов
+LimitNOFILE=1000000                                                         # Лимит открытых файлов
+
 [Install]
-WantedBy=multi-user.target
+WantedBy=multi-user.target                                                  # Автозапуск в многопользовательском режиме
+
+
+
+# Дополнительный конфигурационный файл сервиса
 # /etc/systemd/system/xray.service.d/10-donot_touch_single_conf.conf
+
+# Комментарий о том, что для кастомизации нужно создать копию файла
 # In case you have a good reason to do so, duplicate this file in the same directory and make your customizes there.
 # Or all changes you made will be lost!  # Refer: https://www.freedesktop.org/software/systemd/man/systemd.unit.html
+
 [Service]
-ExecStart=
-ExecStart=/usr/local/bin/xray run -config /usr/local/etc/xray/config.json
+ExecStart=                                                                  # Сброс предыдущей команды ExecStart
+ExecStart=/usr/local/bin/xray run -config /usr/local/etc/xray/config.json   # Переопределение команды запуска
+
+# Список установленных файлов:
 installed: /usr/local/bin/xray
 installed: /usr/local/share/xray/geoip.dat
 installed: /usr/local/share/xray/geosite.dat
@@ -86,12 +97,30 @@ installed: /var/log/xray/access.log
 installed: /var/log/xray/error.log
 installed: /etc/systemd/system/xray.service
 installed: /etc/systemd/system/xray@.service
+
+# Очистка временной папки после установки
 removed: /tmp/tmp.0AbI5WboKE
+
+# Подтверждение успешной установки
 info: Xray v25.6.8 is installed.
+
+# Напоминание о возможности удаления вспомогательных пакетов
 You may need to execute a command to remove dependent software: apt purge curl unzip
+
+# Создание символической ссылки для автозапуска сервиса
 Created symlink /etc/systemd/system/multi-user.target.wants/xray.service → /etc/systemd/system/xray.service.
+
+# Включение и запуск сервиса
 info: Enable and start the Xray service
 ```
+
+После установки можно проверить статус `xray`
+
+```
+systemctl status xray
+```
+
+В файле `/etc/systemd/system/xray.service` лежат параметры запуска `xray`, в частности путь до конфигурационного файла: `/usr/local/etc/xray/config.json`
 
 ## 3x-ui
 
