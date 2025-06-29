@@ -33,7 +33,9 @@
 
 
 <details>
+
 <summary>Лог установки (на момент написания)</summary>
+
 ```bash
 # Скачивание файла проверки целостности архива (хеш-сумма для верификации)
 Downloading verification file for Xray archive: https://github.com/XTLS/Xray-core/releases/download/v25.6.8/Xray-linux-64.zip.dgst
