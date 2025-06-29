@@ -284,7 +284,33 @@ echo ${link} | qrencode -t ansiutf8
 
 Устанавливаем `opkg` по [инструкции](https://help.keenetic.com/hc/ru/articles/360021214160-Установка-системы-пакетов-репозитория-Entware-на-USB-накопитель)
 
-После установк можно зайти на роутер
+После установки можно зайти на роутер по `ssh`
+
+<details>
+
+<summary>Как отформатировать <code>USB</code> в <code>Ext4</code> на <code>MacOS</code></summary>
+
+```bash
+# Установить Homebrew, если не установлен
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+
+# Установить e2fsprogs
+brew install e2fsprogs
+
+# Найти USB устройство
+diskutil list
+
+# Размонтировать USB (замените diskX на ваше устройство)
+diskutil unmountDisk /dev/diskX
+
+# Форматировать в ext4
+sudo $(brew --prefix e2fsprogs)/sbin/mkfs.ext4 -L "OPKG" /dev/diskX
+```
+
+</details>
+
+
+
 
 ```
 ssh root@192.168.1.1
