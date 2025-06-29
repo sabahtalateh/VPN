@@ -315,11 +315,7 @@ openssl req -x509 -nodes -days 3650 -newkey rsa:2048 \
 - Public Key Path: `/etc/ssl/self_signed_cert/self_signed.crt`
 - Private Key Path: `/etc/ssl/self_signed_cert/self_signed.key`
 
-## XKeen
-
-Установим на роутер пакетный менеджер `opkg` и пакет `XKeen`
-
-### opkg
+## opkg
 
 Устанавливаем `opkg` по [инструкции](https://help.keenetic.com/hc/ru/articles/360021214160-Установка-системы-пакетов-репозитория-Entware-на-USB-накопитель)
 
@@ -330,28 +326,36 @@ ssh root@192.168.1.1
 passwor: keenetic
 ```
 
-#### Проблемы
+### Проблемы
 
 Замеченные проблемы
 
 - При скачаивании инсталятора через Safari, браузер распаковывает архив после скачивания, поэтому надо скачивать через Chrome например и копировать в папку install
 - Может не стартовать `ssh`-сервер, тогда [читаем как чинить](https://forum.keenetic.ru/topic/6012-работа-с-entware-при-обновлениях-прошивки-keenetic/). В инструкции старый путь до файла, актуальный путь на момент написания документа такой `/etc/config/dropbear.conf`
 
-### XKeen
+## XKeen
+
+Установим на роутер пакетный менеджер `opkg` и пакет `XKeen`
 
 Есть [оригинальный репозиторий](https://github.com/Skrill0/XKeen) и [форк](https://github.com/jameszeroX/XKeen), вроде форк нормальный и можно пользоваться
 
-#### Политика
+### Политика
 
 Делаем политику с именем `XKeen` и включаем в ней активное интернет подключение. Вроде как она нужна `XKeen`-у чтобы чо-то там делать
 
-#### Установка
+### Установка
 
 Устанавливаем по [инструкции](https://github.com/jameszeroX/XKeen)
 
-После установки в папке `/etc/xray/configs` заменяем файлы `03_inbounds.json`, `04_outbounds.json` и `05_routing.json` по [инструкции](https://github.com/Corvus-Malus/XKeen?tab=readme-ov-file#настройка-xray)
+### Настройка
 
-#### Применение политика
+После установки в папке `/etc/xray/configs` заменяем файлы 
+
+- `03_inbounds.json`: Вроде можно не заменять
+- `04_outbounds.json`: Генерируем [генератором](https://rockblack.pro/xkeen_generator). Копируем туда ссылку из вывод команды `mainuser`
+- `05_routing.json`: Генерируем [другим генератором](https://xray-routing-generator.netlify.app) (вроде работает на пункте **VPN кроме РФ**, в этом случае Российские сайты будут открываться напрямую а остальные через **VPN**)
+
+### Применение политика
 
 Добавляем устройства, которым нужен VPN в политику `XKeen`
 
