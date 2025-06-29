@@ -282,6 +282,12 @@ echo "QR:"
 echo ${link} | qrencode -t ansiutf8
 ```
 
+Не забудем сделать файл исполняемым
+
+```
+chmod +x /usr/local/bin/mainuser
+```
+
 </details>
 
 ## opkg
