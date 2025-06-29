@@ -19,6 +19,7 @@
 
 - https://adminvps.ru
 - https://ishosting.com
+- https://ru.tophosts.net/rating-vps-for-vpn
 
 Покупаем сервер в каких нибудь Нидерландах или Германии. На почту придут креды
 
