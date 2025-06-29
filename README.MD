@@ -280,41 +280,6 @@ echo ${link} | qrencode -t ansiutf8
 
 </details>
 
-
-
-## 3x-ui 
-
-### Установка
-
-Устанавливаем по [инструкции](https://github.com/MHSanaei/3x-ui)
-
-### Настройка подключения
-
-Создаём `inbound` (что бы это ни значило)
-- Remark: **Vless** (может быть что угодно, просто имя)
-- Protocol: **vless**
-- Port: **443** (в инструкции был 443 но вроде работает и с любым другим)
-- Security: **Reality**
-- uTLS: **ios** (можно попробовать другие, вроде на chrome не работает)
-- Client > Flow: **xtls-rprx-vision**
-- Нажимаем **Get New Cert**
-- Sniffing: **Включен** (вроде можно выключить)
-
-### Сертификат
-
-Так-же можно сгенерировать сертификаты на 10 лет, чтобы панель не ругалась. Можно даже купить доменное имя и выпустить сертификат на него, тогда браузер тоже не будет ругаться
-
-```
-openssl req -x509 -nodes -days 3650 -newkey rsa:2048 \
-  -keyout /etc/ssl/self_signed_cert/self_signed.key \
-  -out /etc/ssl/self_signed_cert/self_signed.crt \
-  -subj "/C=US/ST=State/L=City/O=Organization/OU=Department/CN=example.com"
-```
-
-После генерации нужно в `Panel Settings > Certificates` настроить
-- Public Key Path: `/etc/ssl/self_signed_cert/self_signed.crt`
-- Private Key Path: `/etc/ssl/self_signed_cert/self_signed.key`
-
 ## opkg
 
 Устанавливаем `opkg` по [инструкции](https://help.keenetic.com/hc/ru/articles/360021214160-Установка-системы-пакетов-репозитория-Entware-на-USB-накопитель)
@@ -355,7 +320,48 @@ passwor: keenetic
 - `04_outbounds.json`: Генерируем [генератором](https://rockblack.pro/xkeen_generator). Копируем туда ссылку из вывод команды `mainuser`
 - `05_routing.json`: Генерируем [другим генератором](https://xray-routing-generator.netlify.app) (вроде работает на пункте **VPN кроме РФ**, в этом случае Российские сайты будут открываться напрямую а остальные через **VPN**)
 
-### Применение политика
+### Перезапускаем XKeen
+
+```bash
+xkeen -restart
+```
+
+### Применение политики
 
 Добавляем устройства, которым нужен VPN в политику `XKeen`
+
+## [DEPRECATED] 3x-ui
+
+Можно вместо `xray core` установить `3x-ui` но там надо заморачиваться с сертификатами, и для простого сценария использования это оверкил
+
+### Установка
+
+Устанавливаем по [инструкции](https://github.com/MHSanaei/3x-ui)
+
+### Настройка подключения
+
+Создаём `inbound` (что бы это ни значило)
+- Remark: **Vless** (может быть что угодно, просто имя)
+- Protocol: **vless**
+- Port: **443** (в инструкции был 443 но вроде работает и с любым другим)
+- Security: **Reality**
+- uTLS: **ios** (можно попробовать другие, вроде на chrome не работает)
+- Client > Flow: **xtls-rprx-vision**
+- Нажимаем **Get New Cert**
+- Sniffing: **Включен** (вроде можно выключить)
+
+### Сертификат
+
+Так-же можно сгенерировать сертификаты на 10 лет, чтобы панель не ругалась. Можно даже купить доменное имя и выпустить сертификат на него, тогда браузер тоже не будет ругаться
+
+```
+openssl req -x509 -nodes -days 3650 -newkey rsa:2048 \
+  -keyout /etc/ssl/self_signed_cert/self_signed.key \
+  -out /etc/ssl/self_signed_cert/self_signed.crt \
+  -subj "/C=US/ST=State/L=City/O=Organization/OU=Department/CN=example.com"
+```
+
+После генерации нужно в `Panel Settings > Certificates` настроить
+- Public Key Path: `/etc/ssl/self_signed_cert/self_signed.crt`
+- Private Key Path: `/etc/ssl/self_signed_cert/self_signed.key`
 
