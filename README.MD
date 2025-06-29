@@ -26,13 +26,17 @@
 
 Удобно подключиться по `ssh` из `VSCode`
 
-### Установка
+### Зависимости
 
-Установим зависимости
+```bash
+apt update
+```
 
+```bash
+apt install qrencode curl jq -y
 ```
-apt update && apt install qrencode curl jq -y
-```
+
+### XRay Core
 
 Устанавливаем по [инструкции](https://github.com/XTLS/Xray-install?tab=readme-ov-file#basic-usage)
 
