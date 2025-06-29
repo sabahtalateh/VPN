@@ -31,8 +31,7 @@
 Установим зависимости
 
 ```
-apt update
-apt install qrencode curl jq -y
+apt update && apt install qrencode curl jq -y
 ```
 
 Устанавливаем по [инструкции](https://github.com/XTLS/Xray-install?tab=readme-ov-file#basic-usage)
