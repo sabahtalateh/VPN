@@ -24,7 +24,7 @@
 
 ## [XRay Core](https://github.com/XTLS/Xray-core)
 
-Удобно подключиться по `ssh` из `VSCode`
+Для установки и настройки удобно подключиться по `ssh` из `VSCode`
 
 ### Зависимости
 
