@@ -284,8 +284,6 @@ echo ${link} | qrencode -t ansiutf8
 
 Устанавливаем `opkg` по [инструкции](https://help.keenetic.com/hc/ru/articles/360021214160-Установка-системы-пакетов-репозитория-Entware-на-USB-накопитель)
 
-После установки можно зайти на роутер по `ssh`
-
 <details>
 
 <summary>Как отформатировать <code>USB</code> в <code>Ext4</code> на <code>MacOS</code></summary>
@@ -309,8 +307,7 @@ sudo $(brew --prefix e2fsprogs)/sbin/mkfs.ext4 -L "OPKG" /dev/diskX
 
 </details>
 
-
-
+После установки можно зайти на роутер по `ssh`
 
 ```
 ssh root@192.168.1.1
