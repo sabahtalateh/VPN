@@ -26,7 +26,7 @@
 
 ## [XRay Core](https://github.com/XTLS/Xray-core)
 
-Устанавливаем по [инструкции](https://github.com/XTLS/Xray-core?tab=readme-ov-file#installation)
+Устанавливаем по [инструкции](https://github.com/XTLS/Xray-install?tab=readme-ov-file#basic-usage)
 
 Лог установки (на момент написания)
 
