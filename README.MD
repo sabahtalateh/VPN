@@ -30,8 +30,10 @@
 
 Устанавливаем по [инструкции](https://github.com/XTLS/Xray-install?tab=readme-ov-file#basic-usage)
 
-Лог установки (на момент написания)
 
+
+<details>
+<summary>Лог установки (на момент написания)</summary>
 ```bash
 # Скачивание файла проверки целостности архива (хеш-сумма для верификации)
 Downloading verification file for Xray archive: https://github.com/XTLS/Xray-core/releases/download/v25.6.8/Xray-linux-64.zip.dgst
@@ -115,6 +117,9 @@ Created symlink /etc/systemd/system/multi-user.target.wants/xray.service → /et
 # Включение и запуск сервиса
 info: Enable and start the Xray service
 ```
+</details>
+
+
 
 После установки можно проверить статус `xray`
 
