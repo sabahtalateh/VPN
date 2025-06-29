@@ -121,8 +121,6 @@ info: Enable and start the Xray service
 ```
 </details>
 
-
-
 После установки можно проверить статус `xray`
 
 ```
@@ -133,9 +131,11 @@ systemctl status xray
 
 В файле `/etc/systemd/system/xray.service` лежат параметры запуска `xray`, в частности путь до конфигурационного файла: `/usr/local/etc/xray/config.json`
 
-Заменяем содержимое этого файла на такой шаблон
+<details>
 
-```
+<summary>Заменяем содержимое этого файла на такой шаблон</summary>
+
+```json
 {
     "log": {
         "loglevel": "warning"
@@ -223,6 +223,12 @@ systemctl status xray
     }
 }
 ```
+
+</details>
+
+
+
+
 
 Заполним файл с ключами
 
