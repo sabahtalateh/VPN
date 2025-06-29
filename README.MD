@@ -248,7 +248,7 @@ echo "shortsid: $(openssl rand -hex 8)" >> /usr/local/etc/xray/.keys
 
 После чего заменяем `<ПЕРЕМЕННЫЕ>` на значения из файла с ключами `/usr/local/etc/xray/.keys`
 
-### Перезагружаем xray
+### Перезагружаем XRay Core
 
 ```bash
 systemctl restart xray
