@@ -217,6 +217,26 @@ systemctl status xray
 }
 ```
 
+Заполним файл с ключами
+
+```
+echo "uuid: $(xray uuid)" >> /usr/local/etc/xray/.keys
+```
+
+```
+xray x25519 >> /usr/local/etc/xray/.keys
+```
+
+```
+echo "shortsid: $(openssl rand -hex 8)" >> /usr/local/etc/xray/.keys
+```
+
+
+
+После чего заменяем `<ПЕРЕМЕННЫЕ>` ны вывод комманд
+- UUID: `xray uuid`
+
+
 ## 3x-ui
 
 ### Установка
