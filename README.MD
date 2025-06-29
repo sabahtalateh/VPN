@@ -1,4 +1,4 @@
-# VLESS + XKeen на роутере Keenetic
+# XRay + VLESS + XKeen на роутере Keenetic
 
 ## Другие инструкции
 
