@@ -2,7 +2,6 @@
 
 ## Другие инструкции
 
-- [3x-ui от aeza](https://wiki.aeza.net/razvertyvanie-proksi-protokola-vless-s-pomoshyu-3x-ui)
 - [XKeen](https://github.com/Corvus-Malus/XKeen)
 - [Видео от Антенки](https://www.youtube.com/watch?v=CtiILKiAg5Y)
 - [3x-ui от Давайте про IT](https://www.youtube.com/watch?v=zt4oxHeUbdk&t=1225s)
