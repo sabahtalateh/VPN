@@ -244,9 +244,17 @@ echo "shortsid: $(openssl rand -hex 8)" >> /usr/local/etc/xray/.keys
 
 После чего заменяем `<ПЕРЕМЕННЫЕ>` на значения из файла с ключами `/usr/local/etc/xray/.keys`
 
+### Перезагружаем xray
+
+```bash
+systemctl restart xray
+```
+
 ### Команды управления
 
 Скопируем скрипты для управления
+
+####
 
 <details>
 
@@ -274,7 +282,7 @@ echo ${link} | qrencode -t ansiutf8
 
 
 
-## 3x-ui
+## 3x-ui 
 
 ### Установка
 
