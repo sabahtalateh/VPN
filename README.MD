@@ -26,6 +26,8 @@
 
 ## [XRay Core](https://github.com/XTLS/Xray-core)
 
+### Установка
+
 Устанавливаем по [инструкции](https://github.com/XTLS/Xray-install?tab=readme-ov-file#basic-usage)
 
 Лог установки (на момент написания)
@@ -120,7 +122,100 @@ info: Enable and start the Xray service
 systemctl status xray
 ```
 
+### Конфигурация
+
 В файле `/etc/systemd/system/xray.service` лежат параметры запуска `xray`, в частности путь до конфигурационного файла: `/usr/local/etc/xray/config.json`
+
+Заменяем содержимое этого файла на такой шаблон
+
+```
+{
+    "log": {
+        "loglevel": "warning"
+    },
+    "routing": {
+        "domainStrategy": "IPIfNonMatch",
+        "rules": [
+            {
+                "type": "field",
+                "domain": [
+                    "geosite:category-ads-all"
+                ],
+                "outboundTag": "block"
+            },
+            {
+                "type": "field",
+                "ip": [
+                    "geoip:cn"
+                ],
+                "outboundTag": "block"
+            }
+        ]
+    },
+    "inbounds": [
+        {
+            "listen": "0.0.0.0",
+            "port": 443,
+            "protocol": "vless",
+            "settings": {
+                "clients": [
+                    {
+                        "email": "main",
+                        "id": "<UUID>",
+                        "flow": "xtls-rprx-vision"
+                    }
+                ],
+                "decryption": "none"
+            },
+            "streamSettings": {
+                "network": "tcp",
+                "security": "reality",
+                "realitySettings": {
+                    "show": false,
+                    "dest": "github.com:443",
+                    "xver": 0,
+                    "serverNames": [
+                        "github.com",
+                        "www.github.com"
+                    ],
+                    "privateKey": "<PRIVATE_KEY>",
+                    "minClientVer": "",
+                    "maxClientVer": "",
+                    "maxTimeDiff": 0,
+                    "shortIds": [
+                        "<SHORTSID>"
+                    ]
+                }
+            },
+            "sniffing": {
+                "enabled": true,
+                "destOverride": [
+                    "http",
+                    "tls"
+                ]
+            }
+        }
+    ],
+    "outbounds": [
+        {
+            "protocol": "freedom",
+            "tag": "direct"
+        },
+        {
+            "protocol": "blackhole",
+            "tag": "block"
+        }
+    ],
+    "policy": {
+        "levels": {
+            "0": {
+                "handshake": 3,
+                "connIdle": 180
+            }
+        }
+    }
+}
+```
 
 ## 3x-ui
 
