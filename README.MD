@@ -24,7 +24,7 @@
 
 Если нужно редактировать файлы на сервере, удобно подключиться по `ssh` из `VSCode`
 
-## XRay Core
+## [XRay Core](https://github.com/XTLS/Xray-core)
 
 Устанавливаем по [инструкции](https://github.com/XTLS/Xray-core?tab=readme-ov-file#installation)
 
