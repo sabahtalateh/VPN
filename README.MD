@@ -29,6 +29,71 @@
 
 Устанавливаем по [инструкции](https://github.com/XTLS/Xray-core?tab=readme-ov-file#installation)
 
+Лог установки на момент написания
+
+```
+# Скачивание файла проверки целостности архива (хеш-сумма для верификации)
+Downloading verification file for Xray archive: https://github.com/XTLS/Xray-core/releases/download/v25.6.8/Xray-linux-64.zip.dgst
+ok.
+
+# Распаковка скачанного архива во временную папку для подготовки к установке
+info: Extract the Xray package to /tmp/tmp.0AbI5WboKE and prepare it for installation.
+
+# Попытка удалить старые конфигурационные файлы сервиса (они отсутствуют - это нормально для первой установки)
+rm: cannot remove '/etc/systemd/system/xray.service.d/10-donot_touch_multi_conf.conf': No such file or directory
+rm: cannot remove '/etc/systemd/system/xray@.service.d/10-donot_touch_multi_conf.conf': No such file or directory
+
+# Системные файлы для управления Xray как сервисом операционной системы успешно созданы и настроены
+# Это означает что теперь можно управлять Xray через команды systemctl (start/stop/restart/enable)
+# и он будет автоматически запускаться при загрузке системы
+info: Systemd service files have been installed successfully!
+
+# Предупреждение о том, что сейчас будут показаны параметры запуска сервиса
+warning: The following are the actual parameters for the xray service startup.
+
+# Напоминание проверить правильность пути к конфигурационному файлу
+warning: Please make sure the configuration file path is correctly set.
+
+# Содержимое основного сервисного файла
+# /etc/systemd/system/xray.service
+[Unit]
+Description=Xray Service
+Documentation=https://github.com/xtls
+After=network.target nss-lookup.target
+[Service]
+User=nobody
+CapabilityBoundingSet=CAP_NET_ADMIN CAP_NET_BIND_SERVICE
+AmbientCapabilities=CAP_NET_ADMIN CAP_NET_BIND_SERVICE
+NoNewPrivileges=true
+ExecStart=/usr/local/bin/xray run -config /usr/local/etc/xray/config.json
+Restart=on-failure
+RestartPreventExitStatus=23
+LimitNPROC=10000
+LimitNOFILE=1000000
+[Install]
+WantedBy=multi-user.target
+# /etc/systemd/system/xray.service.d/10-donot_touch_single_conf.conf
+# In case you have a good reason to do so, duplicate this file in the same directory and make your customizes there.
+# Or all changes you made will be lost!  # Refer: https://www.freedesktop.org/software/systemd/man/systemd.unit.html
+[Service]
+ExecStart=
+ExecStart=/usr/local/bin/xray run -config /usr/local/etc/xray/config.json
+installed: /usr/local/bin/xray
+installed: /usr/local/share/xray/geoip.dat
+installed: /usr/local/share/xray/geosite.dat
+installed: /usr/local/etc/xray/config.json
+installed: /var/log/xray/
+installed: /var/log/xray/access.log
+installed: /var/log/xray/error.log
+installed: /etc/systemd/system/xray.service
+installed: /etc/systemd/system/xray@.service
+removed: /tmp/tmp.0AbI5WboKE
+info: Xray v25.6.8 is installed.
+You may need to execute a command to remove dependent software: apt purge curl unzip
+Created symlink /etc/systemd/system/multi-user.target.wants/xray.service → /etc/systemd/system/xray.service.
+info: Enable and start the Xray service
+```
+
 ## 3x-ui
 
 ### Установка
