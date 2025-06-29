@@ -5,6 +5,8 @@
 - [3x-ui от aeza](https://wiki.aeza.net/razvertyvanie-proksi-protokola-vless-s-pomoshyu-3x-ui)
 - [XKeen](https://github.com/Corvus-Malus/XKeen)
 - [Видео от Антенки](https://www.youtube.com/watch?v=CtiILKiAg5Y)
+- [Ещё Видео](https://www.youtube.com/watch?v=6MJ06Wgm2EU&t=21s)
+- [X-Core (без web-панели))](https://www.youtube.com/watch?v=PHn5JE9rXgg)
 
 ## Требования
 
