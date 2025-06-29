@@ -6,7 +6,7 @@
 - [XKeen](https://github.com/Corvus-Malus/XKeen)
 - [Видео от Антенки](https://www.youtube.com/watch?v=CtiILKiAg5Y)
 - [3x-ui от Давайте про IT](https://www.youtube.com/watch?v=zt4oxHeUbdk&t=1225s)
-- [X-Core (без web-панели))](https://www.youtube.com/watch?v=PHn5JE9rXgg)
+- [X-Ray Core (без web-панели))](https://www.youtube.com/watch?v=PHn5JE9rXgg)
 
 ## Требования
 
