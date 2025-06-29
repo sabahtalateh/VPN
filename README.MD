@@ -127,7 +127,7 @@ info: Enable and start the Xray service
 ```
 </details>
 
-После установки можно проверить статус `xray`
+После установки можно проверить статус `XRay Core`
 
 ```
 systemctl status xray
@@ -258,8 +258,6 @@ systemctl restart xray
 
 Скопируем скрипты для управления
 
-####
-
 <details>
 
 <summary><code>/usr/local/bin/mainuser</code></summary>
@@ -289,6 +287,16 @@ chmod +x /usr/local/bin/mainuser
 ```
 
 </details>
+
+### Проверим работу
+
+Уже можно проверить работу `VPN` через какой-нибудь клиент, например https://v2raytun.com
+
+Распечатаем `QR`-код для подключения 
+
+```bash
+mainuser
+```
 
 ## opkg
 
