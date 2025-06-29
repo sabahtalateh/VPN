@@ -242,7 +242,7 @@ xray x25519 >> /usr/local/etc/xray/.keys
 echo "shortsid: $(openssl rand -hex 8)" >> /usr/local/etc/xray/.keys
 ```
 
-После чего заменяем `<ПЕРЕМЕННЫЕ>` ны значения из файла с ключами `/usr/local/etc/xray/.keys`
+После чего заменяем `<ПЕРЕМЕННЫЕ>` на значения из файла с ключами `/usr/local/etc/xray/.keys`
 
 ### Команды управления
 
