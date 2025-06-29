@@ -30,8 +30,6 @@
 
 Устанавливаем по [инструкции](https://github.com/XTLS/Xray-install?tab=readme-ov-file#basic-usage)
 
-
-
 <details>
 
 <summary>Лог установки (на момент написания)</summary>
@@ -79,8 +77,6 @@ LimitNOFILE=1000000                                                         # Л
 
 [Install]
 WantedBy=multi-user.target                                                  # Автозапуск в многопользовательском режиме
-
-
 
 # Дополнительный конфигурационный файл сервиса
 # /etc/systemd/system/xray.service.d/10-donot_touch_single_conf.conf
@@ -226,10 +222,6 @@ systemctl status xray
 
 </details>
 
-
-
-
-
 Заполним файл с ключами
 
 ```
@@ -244,10 +236,7 @@ xray x25519 >> /usr/local/etc/xray/.keys
 echo "shortsid: $(openssl rand -hex 8)" >> /usr/local/etc/xray/.keys
 ```
 
-
-
-После чего заменяем `<ПЕРЕМЕННЫЕ>` ны вывод комманд
-- UUID: `xray uuid`
+После чего заменяем `<ПЕРЕМЕННЫЕ>` ны значения из файла с ключами `/usr/local/etc/xray/.keys`
 
 
 ## 3x-ui
