@@ -23,6 +23,10 @@
 
 Покупаем сервер в каких нибудь Нидерландах или Германии. На почту придут креды
 
+## XRay Core
+
+Устанавливаем по [инструкции](https://github.com/XTLS/Xray-core?tab=readme-ov-file#installation)
+
 ## 3x-ui
 
 ### Установка
