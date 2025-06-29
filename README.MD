@@ -28,6 +28,13 @@
 
 ### Установка
 
+Установим зависимости
+
+```
+apt update
+apt install qrencode curl jq -y
+```
+
 Устанавливаем по [инструкции](https://github.com/XTLS/Xray-install?tab=readme-ov-file#basic-usage)
 
 <details>
@@ -237,6 +244,33 @@ echo "shortsid: $(openssl rand -hex 8)" >> /usr/local/etc/xray/.keys
 ```
 
 После чего заменяем `<ПЕРЕМЕННЫЕ>` ны значения из файла с ключами `/usr/local/etc/xray/.keys`
+
+### Команды управления
+
+Скопируем скрипты для управления
+
+<details>
+
+<summary>`/usr/local/bin/mainuser`</summary>
+
+#!/bin/bash
+protocol=$(jq -r '.inbounds[0].protocol' /usr/local/etc/xray/config.json)
+port=$(jq -r '.inbounds[0].port' /usr/local/etc/xray/config.json)
+uuid=$(cat /usr/local/etc/xray/.keys | awk -F': ' '/uuid/ {print $2}')
+pbk=$(cat /usr/local/etc/xray/.keys | awk -F': ' '/Public key/ {print $2}')
+sid=$(cat /usr/local/etc/xray/.keys | awk -F': ' '/shortsid/ {print $2}')
+sni=$(jq -r '.inbounds[0].streamSettings.realitySettings.serverNames[0]' /usr/local/etc/xray/config.json)
+ip=$(timeout 3 curl -s icanhazip.com)
+link="$protocol://$uuid@$ip:$port?security=reality&sni=$sni&fp=firefox&pbk=$pbk&sid=$sid&spx=/&type=tcp&flow=xtls-rprx-vision&encryption=none#vless-$ip"
+echo ""
+echo "Ссылка для подключения":
+echo "$link"
+echo ""
+echo "QR-код:"
+echo ${link} | qrencode -t ansiutf8
+
+</details>
+
 
 
 ## 3x-ui
