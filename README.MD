@@ -414,7 +414,7 @@ xkeen -restart
 
 [Инструкция](https://github.com/XTLS/Xray-install?tab=readme-ov-file#basic-usage)
 
-## [DEPRECATED] 3x-ui
+## 3x-ui
 
 Можно вместо `XRay Core` установить `3x-ui`, это `web`-панель управления, `XRay Core` установится вместе с ней автоматически, но там надо заморачиваться с сертификатами, и для простого сценария использования это оверкил
 
